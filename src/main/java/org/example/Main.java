@@ -10,5 +10,7 @@ public class Main {
 
             System.out.println("PRUEBA" );
         System.out.println("NO FUNCIONAAAA" );
+        System.out.println("para hacer push" );
+        System.out.print("iaiaia" );
     }
 }
