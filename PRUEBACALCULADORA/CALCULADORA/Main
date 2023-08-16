@@ -1,0 +1,25 @@
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int contador = 0;
+        while (contador < 5) {
+            System.out.println("Ingrese el primer valor: ");
+            int primerValor = scanner.nextInt();
+            System.out.println("Ingrese el segundo valor: ");
+            int segundoValor = scanner.nextInt();
+            System.out.println("Ingrese la operación (+, -, *, /): ");
+            char operacion = scanner.next().charAt(0);
+            Calculadora calculadora = new Calculadora();
+            int resultado = calculadora.operar(primerValor, segundoValor, operacion);
+            if (resultado < 0) {
+                System.out.println("El resultado es negativo, tene cuidado!");
+            } else if (resultado > 1000) {
+                System.out.println("El resultado es un número grande");
+            } else {
+                System.out.println("El resultado es: " + resultado);
+            }
+            contador++;
+        }
+    }
+}

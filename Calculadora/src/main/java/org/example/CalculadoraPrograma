@@ -1,0 +1,49 @@
+public class CalculadoraPrograma {
+    public static void main(String[] args) {
+        Calculadora calculadora = new Calculadora();
+        
+        int[][] operaciones = {
+            {10, 30, '+'},
+            {15, 5, '-'},
+            {5, 8, '*'},
+            {20, 4, '/'},
+            {100, 200, '+'}
+        };
+        
+        for (int i = 0; i < operaciones.length; i++) {
+            int primerValor = operaciones[i][0];
+            int segundoValor = operaciones[i][1];
+            char operacion = (char) operaciones[i][2];
+            
+            int resultado = 0;
+            
+            switch (operacion) {
+                case '+':
+                    resultado = calculadora.suma(primerValor, segundoValor);
+                    break;
+                case '-':
+                    resultado = calculadora.resta(primerValor, segundoValor);
+                    break;
+                case '*':
+                    resultado = calculadora.multiplicacion(primerValor, segundoValor);
+                    break;
+                case '/':
+                    resultado = (int) calculadora.division(primerValor, segundoValor);
+                    break;
+                default:
+                    System.out.println("Operación no válida.");
+                    continue;
+            }
+            
+            System.out.println("Resultado: " + resultado);
+            
+            if (resultado < 0) {
+                System.out.println("El resultado es negativo, ten cuidado!");
+            }
+            
+            if (resultado > 1000) {
+                System.out.println("El resultado es un número grande.");
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+public class CalculadoraApp {
+    public static void main(String[] args) {
+        if (args.length != 3) {
+            System.out.println("Se necesitan 3 argumentos: valor1 valor2 operación");
+            return;
+        }
+
+        int a = Integer.parseInt(args[0]);
+        int b = Integer.parseInt(args[1]);
+        char operacion = args[2].charAt(0);
+
+        Calculadora calculadora = new Calculadora();
+
+        while (operacion == '+' || operacion == '-' || operacion == '*' || operacion == '/') {
+            int resultado = 0;
+
+            switch (operacion) {
+                case '+':
+                    resultado = calculadora.suma(a, b);
+                    break;
+                case '-':
+                    resultado = calculadora.resta(a, b);
+                    break;
+                case '*':
+                    resultado = calculadora.multiplicacion(a, b);
+                    break;
+                case '/':
+                    resultado = (int) calculadora.division(a, b);
+                    break;
+            }
+
+            System.out.println("Resultado: " + resultado);
+
+            if (resultado < 0) {
+                System.out.println("El resultado es negativo, ten cuidado!");
+            }
+
+            if (resultado > 1000) {
+                System.out.println("El resultado es un número grande");
+            }
+
+            // Pide nuevos argumentos para continuar o finalizar el programa
+            System.out.println("Ingrese nuevos valores (valor1 valor2 operación) o ingrese una operación no válida para salir:");
+            a = Integer.parseInt(args[0]);
+            b = Integer.parseInt(args[1]);
+            operacion = args[2].charAt(0);
+        }
+
+        System.out.println("Operación no válida. El programa ha finalizado.");
+    }
+}
